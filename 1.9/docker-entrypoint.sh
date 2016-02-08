@@ -1,6 +1,8 @@
 #!/bin/bash -e
 
-j2 /templates/nginx.conf.j2 > /etc/nginx/nginx.conf
-j2 /templates/default.conf.j2 > /etc/nginx/conf.d/default.conf
+sed -i "s|DOCUMENT_ROOT|$DOCUMENT_ROOT|g" /etc/nginx/conf.d/default.conf \
+&& sed -i "s|INDEX_FILE|$INDEX_FILE|g" /etc/nginx/conf.d/default.conf \
+&& sed -i "s|FASTCGI_PASS|$FASTCGI_PASS|g" /etc/nginx/conf.d/default.conf \
+&& sed -i "s|APP_ENV|$APP_ENV|g" /etc/nginx/conf.d/default.conf
 
 exec "$@"
