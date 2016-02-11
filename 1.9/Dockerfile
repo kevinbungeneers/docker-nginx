@@ -7,6 +7,7 @@ ENV INDEX_FILE      index.php
 ENV DOCUMENT_ROOT   /var/www/
 ENV FASTCGI_PASS    127.0.0.1:9000
 ENV APP_ENV         dev
+ENV APP_DEBUG       1
 
 RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
 	&& echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list \
